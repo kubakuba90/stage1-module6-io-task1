@@ -1,11 +1,7 @@
 package com.epam.mjc.io;
 import java.io.*;
 public class FileReader {
-    private FileReader() {
-        throw new IllegalStateException("Utility class");
-    }
     public static Profile getDataFromFile(File file) {
-
 
         String stringWithProfile = "";
 
