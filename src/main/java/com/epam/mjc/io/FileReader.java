@@ -29,7 +29,10 @@ public class FileReader {
                 stringWithProfile += ((char) c);
 
             }
-        } finally {
+        } catch (IOException e) {
+
+        }
+        finally {
             if (in != null) {
                 in.close();
             }
