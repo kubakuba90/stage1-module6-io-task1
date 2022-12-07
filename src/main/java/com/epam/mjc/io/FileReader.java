@@ -1,16 +1,13 @@
 package com.epam.mjc.io;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
 
 
 public class FileReader {
 
-    public static Profile getDataFromFile(File file) throws IOException { //throws IOException brak
+    public static Profile getDataFromFile(File file)  { //throws IOException brak
 
         FileInputStream in = null;
         FileOutputStream out = null;
@@ -19,25 +16,22 @@ public class FileReader {
 
         try {
             in = new FileInputStream(file);
-
-
             int c;
             while ((c = in.read()) != -1) {
                 dataFromFile.append((char) c);
-
                 // read byte from file so its necessary to cast
                 stringWithProfile += ((char) c);
-
             }
         } catch (IOException e) {
-
+            System.out.println();
         }
         finally {
-            if (in != null) {
-                in.close();
-            }
-            if (out != null) {
-                out.close();
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
 
