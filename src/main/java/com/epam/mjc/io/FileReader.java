@@ -3,7 +3,7 @@ package com.epam.mjc.io;
 import java.io.*;
 public class FileReader {
 
-    public static Profile getDataFromFile(File file) { //throws IOException brak
+    public static Profile getDataFromFile(File file) {
 
         StringBuilder dataFromFile = new StringBuilder();
         String stringWithProfile = "";
