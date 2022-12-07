@@ -1,24 +1,22 @@
 package com.epam.mjc.io;
-
 import java.io.*;
 public class FileReader {
-
+    private FileReader() {
+        throw new IllegalStateException("Utility class");
+    }
     public static Profile getDataFromFile(File file) {
 
-        StringBuilder dataFromFile = new StringBuilder();
+
         String stringWithProfile = "";
 
         try (FileInputStream in = new FileInputStream(file);
                 ) {
-            //in = new FileInputStream(file);
             int c;
             while ((c = in.read()) != -1) {
-                dataFromFile.append((char) c);
-                // read byte from file so its necessary to cast
                 stringWithProfile += ((char) c);
             }
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
 
         String[] keyVals = stringWithProfile.split("[:\\n]");
